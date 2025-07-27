@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'dockertest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'data/db/db.sqlite3', # 追記
+        'NAME': str(BASE_DIR.parent / 'data/db/db.sqlite3'), # 追記
     }
 }
 
@@ -168,7 +168,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'logs/django/django.log',
+            'filename': str(BASE_DIR.parent / 'logs/django/django.log'),
             'formatter': 'verbose', # 設定したフォーマッタを指定する
             
             # 'when': 'D', # ログローテーション間隔単位
