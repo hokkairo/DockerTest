@@ -1,0 +1,2 @@
+# DockerTest
+Djangoで作成したwebアプリケーションをDockerで稼働させるテスト
