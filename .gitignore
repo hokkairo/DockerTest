@@ -1,0 +1,9 @@
+venv-docker-test/
+学習メモ/
+db.sqlite3
+*.log
+
+__pycache__/
+
+.DS_Store
+Thumbs.db

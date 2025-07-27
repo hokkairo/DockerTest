@@ -1,0 +1,37 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{% static "css/style.css" %}" />
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p>{{ message }}</p>
+  <table>
+    <tr>
+      {% for col in header %}
+      <th>{{ col }}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.mail }}</td>
+      <td>{% if not employee.gender %}男{% endif %}
+        {% if employee.gender %}女{% endif %}
+      </td>
+      <td>{{ employee.department }}</td>
+      <td>{{ employee.year }}</td>
+      <td>{{ employee.created_at }}</td>
+      <td>
+        <form action="{% url 'webtestapp:delete' id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="削除">
+        </form>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
